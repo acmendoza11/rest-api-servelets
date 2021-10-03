@@ -1,19 +1,19 @@
 /*
-* Licensed to the Apache Software Foundation (ASF) under one or more
-* contributor license agreements.  See the NOTICE file distributed with
-* this work for additional information regarding copyright ownership.
-* The ASF licenses this file to You under the Apache License, Version 2.0
-* (the "License"); you may not use this file except in compliance with
-* the License.  You may obtain a copy of the License at
-*
-*     http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package compressionFilters;
 
 import java.io.IOException;
@@ -39,7 +39,7 @@ public class CompressionResponseStream extends ServletOutputStream {
      * Construct a servlet output stream associated with the specified Response.
      *
      * @param responseWrapper The associated response wrapper
-     * @param originalOutput the output stream
+     * @param originalOutput  the output stream
      */
     public CompressionResponseStream(
             CompressionServletResponseWrapper responseWrapper,
@@ -127,7 +127,7 @@ public class CompressionResponseStream extends ServletOutputStream {
         this.compressionThreshold = compressionThreshold;
         buffer = new byte[this.compressionThreshold];
         if (debug > 1) {
-            System.out.println("compressionThreshold is set to "+ this.compressionThreshold);
+            System.out.println("compressionThreshold is set to " + this.compressionThreshold);
         }
     }
 
@@ -137,7 +137,7 @@ public class CompressionResponseStream extends ServletOutputStream {
     protected void setCompressionBuffer(int compressionBuffer) {
         this.compressionBuffer = compressionBuffer;
         if (debug > 1) {
-            System.out.println("compressionBuffer is set to "+ this.compressionBuffer);
+            System.out.println("compressionBuffer is set to " + this.compressionBuffer);
         }
     }
 
@@ -229,14 +229,13 @@ public class CompressionResponseStream extends ServletOutputStream {
      * Write the specified byte to our output stream.
      *
      * @param b The byte to be written
-     *
-     * @exception IOException if an input/output error occurs
+     * @throws IOException if an input/output error occurs
      */
     @Override
     public void write(int b) throws IOException {
 
         if (debug > 1) {
-            System.out.println("write "+b+" in CompressionResponseStream ");
+            System.out.println("write " + b + " in CompressionResponseStream ");
         }
         if (closed) {
             throw new IOException("Cannot write to a closed output stream");
@@ -256,8 +255,7 @@ public class CompressionResponseStream extends ServletOutputStream {
      * to our output stream.
      *
      * @param b The byte array to be written
-     *
-     * @exception IOException if an input/output error occurs
+     * @throws IOException if an input/output error occurs
      */
     @Override
     public void write(byte b[]) throws IOException {
@@ -265,7 +263,6 @@ public class CompressionResponseStream extends ServletOutputStream {
         write(b, 0, b.length);
 
     }
-
 
 
     /**
@@ -292,11 +289,10 @@ public class CompressionResponseStream extends ServletOutputStream {
      * Write <code>len</code> bytes from the specified byte array, starting
      * at the specified offset, to our output stream.
      *
-     * @param b The byte array containing the bytes to be written
+     * @param b   The byte array containing the bytes to be written
      * @param off Zero-relative starting offset of the bytes to be written
      * @param len The number of bytes to be written
-     *
-     * @exception IOException if an input/output error occurs
+     * @throws IOException if an input/output error occurs
      */
     @Override
     public void write(byte b[], int off, int len) throws IOException {
@@ -427,7 +423,7 @@ public class CompressionResponseStream extends ServletOutputStream {
      * Checks if any entry in the string array starts with the specified value
      *
      * @param sArray the StringArray
-     * @param value string
+     * @param value  string
      */
     private boolean startsWithStringArray(String sArray[], String value) {
         if (value == null) {

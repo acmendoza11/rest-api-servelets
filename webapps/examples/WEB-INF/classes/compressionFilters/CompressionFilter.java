@@ -1,19 +1,19 @@
 /*
-* Licensed to the Apache Software Foundation (ASF) under one or more
-* contributor license agreements.  See the NOTICE file distributed with
-* this work for additional information regarding copyright ownership.
-* The ASF licenses this file to You under the Apache License, Version 2.0
-* (the "License"); you may not use this file except in compliance with
-* the License.  You may obtain a copy of the License at
-*
-*     http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package compressionFilters;
 
 import java.io.IOException;
@@ -147,7 +147,7 @@ public class CompressionFilter extends GenericFilter {
      * (<code>chain.doFilter()</code>), <br>
      **/
     @Override
-    public void doFilter (ServletRequest request, ServletResponse response, FilterChain chain )
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
 
         if (debug > 0) {
@@ -165,11 +165,11 @@ public class CompressionFilter extends GenericFilter {
         boolean supportCompression = false;
         if (request instanceof HttpServletRequest) {
             if (debug > 1) {
-                System.out.println("requestURI = " + ((HttpServletRequest)request).getRequestURI());
+                System.out.println("requestURI = " + ((HttpServletRequest) request).getRequestURI());
             }
 
             // Are we allowed to compress ?
-            String s = ((HttpServletRequest)request).getParameter("gzip");
+            String s = ((HttpServletRequest) request).getParameter("gzip");
             if ("false".equals(s)) {
                 if (debug > 0) {
                     System.out.println("got parameter gzip=false --> don't compress, just chain filter");
@@ -179,7 +179,7 @@ public class CompressionFilter extends GenericFilter {
             }
 
             Enumeration<String> e =
-                ((HttpServletRequest)request).getHeaders("Accept-Encoding");
+                    ((HttpServletRequest) request).getHeaders("Accept-Encoding");
             while (e.hasMoreElements()) {
                 String name = e.nextElement();
                 if (name.indexOf("gzip") != -1) {
@@ -198,7 +198,7 @@ public class CompressionFilter extends GenericFilter {
         if (supportCompression) {
             if (response instanceof HttpServletResponse) {
                 CompressionServletResponseWrapper wrappedResponse =
-                    new CompressionServletResponseWrapper((HttpServletResponse)response);
+                        new CompressionServletResponseWrapper((HttpServletResponse) response);
                 wrappedResponse.setDebugLevel(debug);
                 wrappedResponse.setCompressionThreshold(compressionThreshold);
                 wrappedResponse.setCompressionBuffer(compressionBuffer);

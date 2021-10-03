@@ -79,7 +79,7 @@ public class SnakeAnnotation {
         SnakeTimer.addSnake(snake);
         StringBuilder sb = new StringBuilder();
         for (Iterator<Snake> iterator = SnakeTimer.getSnakes().iterator();
-                iterator.hasNext();) {
+             iterator.hasNext(); ) {
             Snake snake = iterator.next();
             sb.append(String.format("{\"id\": %d, \"color\": \"%s\"}",
                     Integer.valueOf(snake.getId()), snake.getHexColor()));
@@ -123,7 +123,7 @@ public class SnakeAnnotation {
         Throwable root = t;
         while (root.getCause() != null && count < 20) {
             root = root.getCause();
-            count ++;
+            count++;
         }
         if (root instanceof EOFException) {
             // Assume this is triggered by the user closing their browser and

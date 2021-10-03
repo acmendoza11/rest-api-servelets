@@ -33,7 +33,7 @@ import javax.servlet.http.HttpServletResponse;
 public class ResponseTrailers extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
-    private static final Supplier<Map<String,String>> TRAILER_FIELD_SUPPLIER =
+    private static final Supplier<Map<String, String>> TRAILER_FIELD_SUPPLIER =
             new TrailerFieldSupplier();
 
 
@@ -45,15 +45,15 @@ public class ResponseTrailers extends HttpServlet {
         resp.setContentType("text/plain");
         resp.setCharacterEncoding("UTF-8");
 
-        PrintWriter pw  = resp.getWriter();
+        PrintWriter pw = resp.getWriter();
 
         pw.print("This response should include trailer fields.");
     }
 
 
-    private static class TrailerFieldSupplier implements Supplier<Map<String,String>> {
+    private static class TrailerFieldSupplier implements Supplier<Map<String, String>> {
 
-        private static final Map<String,String> trailerFields = new HashMap<>();
+        private static final Map<String, String> trailerFields = new HashMap<>();
 
         static {
             trailerFields.put("x-trailer-1", "Trailer value one");

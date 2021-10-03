@@ -36,7 +36,7 @@ import org.apache.juli.logging.LogFactory;
 import async.Stockticker.Stock;
 import async.Stockticker.TickListener;
 
-public class AsyncStockServlet extends HttpServlet implements TickListener, AsyncListener{
+public class AsyncStockServlet extends HttpServlet implements TickListener, AsyncListener {
 
     private static final long serialVersionUID = 1L;
 
@@ -61,14 +61,14 @@ public class AsyncStockServlet extends HttpServlet implements TickListener, Asyn
             actx.addListener(this);
             resp.setContentType("text/plain");
             clients.add(actx);
-            if (clientcount.incrementAndGet()==1) {
+            if (clientcount.incrementAndGet() == 1) {
                 Stockticker ticker = (Stockticker) req.getServletContext().getAttribute(
                         AsyncStockContextListener.STOCK_TICKER_KEY);
                 ticker.addTickListener(this);
             }
         } else {
             new Exception("Async Not Supported").printStackTrace();
-            resp.sendError(400,"Async is not supported.");
+            resp.sendError(400, "Async is not supported.");
         }
     }
 
@@ -86,7 +86,7 @@ public class AsyncStockServlet extends HttpServlet implements TickListener, Asyn
 
 
     public void writeStock(AsyncContext actx, Stock stock) throws IOException {
-        HttpServletResponse response = (HttpServletResponse)actx.getResponse();
+        HttpServletResponse response = (HttpServletResponse) actx.getResponse();
         PrintWriter writer = response.getWriter();
         writer.write("STOCK#");//make client parsing easier
         writer.write(stock.getSymbol());
@@ -118,7 +118,7 @@ public class AsyncStockServlet extends HttpServlet implements TickListener, Asyn
 
     @Override
     public void onComplete(AsyncEvent event) throws IOException {
-        if (clients.remove(event.getAsyncContext()) && clientcount.decrementAndGet()==0) {
+        if (clients.remove(event.getAsyncContext()) && clientcount.decrementAndGet() == 0) {
             ServletContext sc = event.getAsyncContext().getRequest().getServletContext();
             Stockticker ticker = (Stockticker) sc.getAttribute(
                     AsyncStockContextListener.STOCK_TICKER_KEY);

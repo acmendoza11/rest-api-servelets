@@ -78,7 +78,7 @@ public class Client {
      * Sends the given message asynchronously to the client.
      * If there is already a async sending in progress, then the message
      * will be buffered and sent when possible.<br><br>
-     *
+     * <p>
      * This method can be called from multiple threads.
      *
      * @param msg The message to send
@@ -165,6 +165,7 @@ public class Client {
 
     /**
      * Internally sends the messages asynchronously.
+     *
      * @param msg
      */
     private void internalSendMessageAsync(AbstractWebsocketMessage msg) {
@@ -181,13 +182,12 @@ public class Client {
                 // Close the session.
                 session.close();
             }
-        } catch (IllegalStateException|IOException ex) {
+        } catch (IllegalStateException | IOException ex) {
             // Trying to write to the client when the session has
             // already been closed.
             // Ignore
         }
     }
-
 
 
     /**

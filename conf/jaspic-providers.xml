@@ -19,5 +19,5 @@
                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                   xsi:schemaLocation="http://tomcat.apache.org/xml jaspic-providers.xsd"
                   version="1.0">
-  <!-- No JASPIC providers configured by default -->
+    <!-- No JASPIC providers configured by default -->
 </jaspic-providers>
