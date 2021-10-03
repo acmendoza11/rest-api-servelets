@@ -36,3 +36,7 @@
 03-Oct-2021 23:45:55.955 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\Personal Files\College\Senior - 1st sem\SOFTWAREDSNL-4651\Activity-6\myProject\rest-api-servelets\webapps\ROOT] has finished in [14] ms
 03-Oct-2021 23:45:55.958 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
 03-Oct-2021 23:45:55.969 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [852] milliseconds
+03-Oct-2021 23:59:43.520 INFO [Thread-3] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+03-Oct-2021 23:59:43.554 INFO [Thread-3] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+03-Oct-2021 23:59:43.566 INFO [Thread-3] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+03-Oct-2021 23:59:43.602 INFO [Thread-3] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
