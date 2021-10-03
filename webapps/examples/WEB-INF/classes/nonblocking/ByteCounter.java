@@ -84,7 +84,7 @@ public class ByteCounter extends HttpServlet {
         private byte[] buffer = new byte[8192];
 
         private CounterListener(AsyncContext ac, ServletInputStream sis,
-                ServletOutputStream sos) {
+                                ServletOutputStream sos) {
             this.ac = ac;
             this.sis = sis;
             this.sos = sos;

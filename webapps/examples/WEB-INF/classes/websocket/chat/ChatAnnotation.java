@@ -78,8 +78,6 @@ public class ChatAnnotation {
     }
 
 
-
-
     @OnError
     public void onError(Throwable t) throws Throwable {
         log.error("Chat Error: " + t.toString(), t);

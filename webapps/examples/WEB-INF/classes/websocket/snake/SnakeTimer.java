@@ -65,7 +65,7 @@ public class SnakeTimer {
     protected static void tick() {
         StringBuilder sb = new StringBuilder();
         for (Iterator<Snake> iterator = SnakeTimer.getSnakes().iterator();
-                iterator.hasNext();) {
+             iterator.hasNext(); ) {
             Snake snake = iterator.next();
             snake.update(SnakeTimer.getSnakes());
             sb.append(snake.getLocationsJson());

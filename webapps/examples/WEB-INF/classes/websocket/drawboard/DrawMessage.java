@@ -27,7 +27,7 @@ import java.awt.geom.Rectangle2D;
  * A message that represents a drawing action.
  * Note that we use primitive types instead of Point, Color etc.
  * to reduce object allocation.<br><br>
- *
+ * <p>
  * TODO: But a Color objects needs to be created anyway for drawing this
  * onto a Graphics2D object, so this probably does not save much.
  */
@@ -46,6 +46,7 @@ public final class DrawMessage {
     public int getType() {
         return type;
     }
+
     public void setType(int type) {
         this.type = type;
     }
@@ -53,6 +54,7 @@ public final class DrawMessage {
     public double getThickness() {
         return thickness;
     }
+
     public void setThickness(double thickness) {
         this.thickness = thickness;
     }
@@ -60,24 +62,31 @@ public final class DrawMessage {
     public byte getColorR() {
         return colorR;
     }
+
     public void setColorR(byte colorR) {
         this.colorR = colorR;
     }
+
     public byte getColorG() {
         return colorG;
     }
+
     public void setColorG(byte colorG) {
         this.colorG = colorG;
     }
+
     public byte getColorB() {
         return colorB;
     }
+
     public void setColorB(byte colorB) {
         this.colorB = colorB;
     }
+
     public byte getColorA() {
         return colorA;
     }
+
     public void setColorA(byte colorA) {
         this.colorA = colorA;
     }
@@ -85,32 +94,39 @@ public final class DrawMessage {
     public double getX1() {
         return x1;
     }
+
     public void setX1(double x1) {
         this.x1 = x1;
     }
+
     public double getX2() {
         return x2;
     }
+
     public void setX2(double x2) {
         this.x2 = x2;
     }
+
     public double getY1() {
         return y1;
     }
+
     public void setY1(double y1) {
         this.y1 = y1;
     }
+
     public double getY2() {
         return y2;
     }
+
     public void setY2(double y2) {
         this.y2 = y2;
     }
 
 
     public DrawMessage(int type, byte colorR, byte colorG, byte colorB,
-            byte colorA, double thickness, double x1, double x2, double y1,
-            double y2) {
+                       byte colorA, double thickness, double x1, double x2, double y1,
+                       double y2) {
 
         this.type = type;
         this.colorR = colorR;
@@ -247,7 +263,6 @@ public final class DrawMessage {
             super(message);
         }
     }
-
 
 
 }
