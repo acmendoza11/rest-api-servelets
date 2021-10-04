@@ -342,3 +342,7 @@
 0:0:0:0:0:0:0:1 - - [04/Oct/2021:16:39:23 +0800] "GET /app/json?author=Tan+Ah+Teck HTTP/1.1" 200 156
 0:0:0:0:0:0:0:1 - - [04/Oct/2021:16:39:23 +0800] "GET /favicon.ico HTTP/1.1" 200 21630
 0:0:0:0:0:0:0:1 - - [04/Oct/2021:16:39:28 +0800] "GET /app/json?author=Tan+Ah+Teck HTTP/1.1" 200 156
+0:0:0:0:0:0:0:1 - - [04/Oct/2021:16:50:17 +0800] "GET /app/querybook.html HTTP/1.1" 200 816
+0:0:0:0:0:0:0:1 - - [04/Oct/2021:16:50:17 +0800] "GET /favicon.ico HTTP/1.1" 200 21630
+0:0:0:0:0:0:0:1 - - [04/Oct/2021:16:50:20 +0800] "GET /app/json?author=Mohammad+Ali HTTP/1.1" 200 88
+0:0:0:0:0:0:0:1 - - [04/Oct/2021:16:50:24 +0800] "GET /app/query?author=Mohammad+Ali HTTP/1.1" 200 317
