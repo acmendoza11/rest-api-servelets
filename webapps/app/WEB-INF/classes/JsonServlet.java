@@ -3,6 +3,9 @@ import java.sql.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
+import org.json.JSONObject;
+import org.json.JSONArray;
+
 @WebServlet("/json")   // Configure the request URL for this servlet (Tomcat 7/Servlet 3.0 upwards)
 public class JsonServlet extends HttpServlet {
     // The doGet() runs once per HTTP GET request to this servlet.
@@ -10,7 +13,7 @@ public class JsonServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // Set the MIME type for the response message
-        response.setContentType("text/html");
+        response.setContentType("text/json");
         // Get a output writer to write the response message into the network socket
         PrintWriter out = response.getWriter();
         // Print an HTML page as the output of the query
@@ -30,22 +33,15 @@ public class JsonServlet extends HttpServlet {
                     + " and qty > 0 order by price desc";
             ResultSet rset = stmt.executeQuery(sqlStr);  // Send the query to the server
             // Step 4: Process the query result set
-
-            out.println("[");
+            JSONArray arr = new JSONArray();
             while(rset.next()) {
-
-                // Print a paragraph <p>...</p> for each record
-                out.println("{\"author\":" + "\"" + rset.getString("author") + "\""
-                        + ", " + "\"title\":" + "\"" + rset.getString("title") + "\""
-                        + ", " + "\"price\":"  + rset.getDouble("price") + "}");
-
-                if (rset.next() == false) {
-                    break;
-                }
-                out.println(",");
-                rset.previous();
+                JSONObject obj = new JSONObject();
+                obj.put("author", rset.getString("author"));
+                obj.put("title", rset.getString("title"));
+                obj.put("price", rset.getDouble("price"));
+                arr.put(obj);
             }
-            out.println("]");
+            out.println(arr);
         } catch(Exception ex) {
             out.println("<p>Error: " + ex.getMessage() + "</p>");
             out.println("<p>Check Tomcat console for details.</p>");
